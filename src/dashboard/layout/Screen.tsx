@@ -7,9 +7,8 @@ export default function Screen() {
   return (
     <div
       className="
-        relative
-        h-screen
-        w-full
+        fixed
+        inset-0
         overflow-hidden
         bg-gradient-to-br
         from-[#12002b]
@@ -19,8 +18,8 @@ export default function Screen() {
         p-5
       "
     >
-      {/* Световые пятна фона */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Световые пятна */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="
             absolute
@@ -37,8 +36,8 @@ export default function Screen() {
         <div
           className="
             absolute
-            bottom-[-200px]
-            right-[-100px]
+            -bottom-40
+            -right-20
             w-[600px]
             h-[600px]
             rounded-full
@@ -48,20 +47,22 @@ export default function Screen() {
         />
       </div>
 
-      {/* Основная сетка */}
       <div
         className="
           relative
           z-10
           h-full
           grid
-          grid-cols-[1fr_360px]
           gap-5
+          grid-cols-[minmax(0,1fr)_minmax(300px,18vw)]
         "
       >
-        {/* ЛЕВАЯ ЧАСТЬ — РЕЙТИНГ */}
+        {/* Левая часть */}
         <div
           className="
+            flex
+            flex-col
+            min-h-0
             rounded-[32px]
             border
             border-white/10
@@ -69,28 +70,28 @@ export default function Screen() {
             backdrop-blur-xl
             p-6
             shadow-2xl
-            overflow-hidden
           "
         >
           <Header />
 
-          <div className="mt-5 h-[calc(100%-80px)]">
+          <div className="flex-1 mt-5 min-h-0 overflow-hidden">
             <Rating />
           </div>
         </div>
 
-        {/* ПРАВАЯ ЧАСТЬ */}
+        {/* Правая часть */}
         <div
           className="
             flex
             flex-col
             gap-5
+            min-h-0
           "
         >
-          {/* QR */}
           <div
             className="
-              flex-[1]
+              flex-1
+              min-h-0
               rounded-[32px]
               border
               border-white/10
@@ -98,15 +99,16 @@ export default function Screen() {
               backdrop-blur-xl
               p-6
               shadow-2xl
+              overflow-hidden
             "
           >
             <QRCodeCard />
           </div>
 
-          {/* Реклама */}
           <div
             className="
-              flex-[1]
+              flex-1
+              min-h-0
               rounded-[32px]
               border
               border-white/10
