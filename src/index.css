@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background: black;
+  color: white;
+}
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+* {
+  user-select: none;
+  cursor: none;
+}
+
+.tv-screen {
+  animation: screenFade 1s ease forwards;
+}
+
+@keyframes screenFade {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Плавное появление карточек */
+
+.card-enter {
+  animation: cardEnter 0.7s ease forwards;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Золотое свечение */
+
+.gold-glow {
+  animation: goldPulse 3s infinite;
+}
+
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 55px rgba(250, 204, 21, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+  }
+}
+
+/* Перелив */
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+
+  left: -120%;
+
+  width: 70%;
+
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+
+  animation: shineMove 4s infinite;
+}
+
+@keyframes shineMove {
+  0% {
+    left: -120%;
+  }
+
+  40% {
+    left: 130%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}
+
+/* Живой фон */
+
+.background-motion {
+  animation: backgroundMove 20s infinite alternate;
+}
+
+@keyframes backgroundMove {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(40px, -30px);
+  }
+}
